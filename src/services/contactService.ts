@@ -21,6 +21,10 @@ export const createContact = async (
   linkPrecedence: "primary" | "secondary" = "primary",
   linkedId?: number
 ): Promise<Contact> => {
+  if (!phoneNumber) {
+    return Promise.reject(new Error("Phone number is required"));
+  }
+
   const result = await pool.query(
     `
     INSERT INTO Contact (email, phoneNumber, linkPrecedence, linkedId)

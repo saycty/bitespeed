@@ -48,7 +48,7 @@ export const identify = async (req: Request, res: Response) => {
     contact: {
       primaryContactId: primaryContact.id,
       emails: [primaryContact.email, ...emails],
-      phoneNumbers: [primaryContact.phoneNumber, ...phoneNumbers],
+      phoneNumbers: [primaryContact.phoneNumber],
       secondaryContactIds,
     },
   });
